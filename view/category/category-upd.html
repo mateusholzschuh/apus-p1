@@ -1,0 +1,29 @@
+<!--Content-->
+<div class="container bg-light col-md-4">
+    <div class="row mb-2">
+        <h1>Categorias de Produtos</h1>
+    </div>
+    <div class="row">
+        <form ng-submit="updCategory()" class="col-12 p-0">
+            <h5 class="text-muted mb-3">Editar categoria</h5>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" title="Id">
+                        <span class="input-group-text">
+                        <i class="fa fa-barcode"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" placeholder="Id" value="{{category.id}}" readonly>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" title="Nome">
+                        <span class="input-group-text">
+                        <i class="fa fa-font"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Nome" value="{{category.name}}" ng-model="category.name" ng-required="true">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Salvar alterações</button>
+                <a href="#!category" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+        </form>
+    </div>
+</div>

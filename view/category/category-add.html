@@ -1,0 +1,31 @@
+<!--Content-->
+<div class="container bg-light col-md-4">
+    <div class="row mb-2">
+        <h1>Categorias de Produtos</h1>
+    </div>
+    <div class="row">
+        <form ng-submit="addCategory(cat)" class="col-12 p-0" name="categoryform">
+            <h5 class="text-muted mb-3">Adicionar nova categoria</h5>
+                <!-- commented // id 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" title="Id">
+                        <span class="input-group-text">
+                        <i class="fa fa-barcode"></i>
+                        </span>
+                    </div>
+                    <input type="number" class="form-control" ng-model="cat.id" placeholder="Id">
+                </div>
+                -->
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend" title="Nome">
+                        <span class="input-group-text">
+                        <i class="fa fa-font"></i>
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" ng-model="cat.name" placeholder="Nome" ng-required="true">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Adicionar</button>
+                <button type="reset" class="btn btn-danger"><i class="fa fa-times"></i> Limpar</button>
+        </form>
+    </div>
+</div>

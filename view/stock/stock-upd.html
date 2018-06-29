@@ -1,0 +1,54 @@
+<!--Content-->
+<div class="container bg-light col-md-4">
+    <div class="row mb-2">
+        <h1>Estoque</h1>
+    </div>
+    <div class="row">
+        <form ng-submit="updEntry();" class="col-12 p-0">
+            <h5 class="text-muted mb-3">Editar entrada</h5>
+            <!--Id-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" title="Id">
+                    <span class="input-group-text">
+                    <i class="fa fa-barcode"></i>
+                    </span>
+                </div>
+                <input type="number" class="form-control" placeholder="Id" ng-model="entry.id" readonly>
+            </div>
+            <!--Product-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" title="Produto">
+                    <span class="input-group-text">
+                    <i class="fa fa-archive"></i>
+                    </span>
+                </div>
+                <select class="form-control" ng-model="entry.product_id" ng-required="true">
+                    <option value="" disabled hidden>Selecione um produto</option>
+                    <option ng-repeat="pdt in products" value="{{pdt.id}}">{{pdt.id}} - {{pdt.title}}</option>
+                </select>
+            </div>
+            <!--Quantity-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" title="Quantidade">
+                    <span class="input-group-text">
+                    <i class="fa fa-database"></i>
+                    </span>
+                </div>
+                <input type="number" step="any" class="form-control" placeholder="Quantidade" ng-model="entry.quantity" ng-required="true">
+            </div>
+            <!-- Commented // Datetime
+            <div class="input-group mb-3">
+                <div class="input-group-prepend" title="Data">
+                    <span class="input-group-text">
+                    <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+                <input type="datetime-local" class="form-control" placeholder="Data" ng-model="entry.date_time" ng-required="true">
+            </div>
+            -->
+            <!--Controls-->
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Salvar alterações</button>
+            <a href="#!stock" class="btn btn-danger"><i class="fa fa-times"></i> Cancelar</a>
+        </form>
+    </div>
+</div>

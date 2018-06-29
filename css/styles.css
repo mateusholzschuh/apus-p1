@@ -1,0 +1,30 @@
+body {
+    background: #dedede;
+}
+.container {
+    max-width: 960px;
+    margin-top: 2rem;
+    padding: 3rem;
+}
+
+@media (max-width:500px) {
+    .collapse-text {
+        display: none;
+    }
+}
+
+.trash-anim {
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+}
+
+.dn {
+    display: none;
+}
+
+/* Overload Bootbox modal style to vertical center */
+.modal-open .modal, .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}

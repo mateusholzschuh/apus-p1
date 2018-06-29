@@ -1,0 +1,47 @@
+<div class="container bg-light">
+    <div class="row mb-2">
+        <!--Title-->
+        <h1>Produtos</h1>
+    </div>
+    <div class="row">
+        <!--Controls // search and add button-->
+        <div class="d-flex w-100 mb-2 justify-content-between">
+            <input class="form-control col-7" type="search" ng-model="search" placeholder="Procurar por..."/>
+            <a href="#!product/add" class="form-control col-4 col-md-3 btn btn-primary"><i class="fa fa-plus"></i> <span class="collapse-text">Adicionar novo</span></a>
+        </div>
+        <!--Table start-->
+        <table class="table table-hover table-striped table-responsive-md bg-light">
+            <thead>
+                <tr>
+                    <th><a href="" ng-click="delProducts();" ng-class="{dn : !isSomeSelected(products)}" class="trash-anim fa fa-trash" title="Remover todos selecionados"></a></th>
+                    <th><a href="" ng-click="sort('id')">Id</a></th>
+                    <th><a href="" ng-click="sort('category_id')">Categoria</a></th>
+                    <th><a href="" ng-click="sort('title')">Título</a></th>
+                    <th><a href="" ng-click="sort('description')">Descrição</a></th>
+                    <th><a href="" ng-click="sort('price')">Preço</a></th>
+                    <th><a href="" ng-click="sort('quantity')">Quantidade</a></th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in objs = (products | orderBy:keysort:reverseSort | filter:search) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                    <td><input type="checkbox" ng-model="product.selected"></td>
+                    <td>{{product.id}}</td>
+                    <td>{{product.category_id}}</td>
+                    <td>{{product.title}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price | currency}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>
+                        <a href="#!product/update/{{product.id}}" class="btn btn-success btn-sm rounded-circle" title="Alterar"><i class="fa fa-edit"></i></a>
+                        <button ng-click="delProduct(product.id);" class="btn btn-danger btn-sm rounded-circle" title="Remover"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Table end-->
+        <!--Pagination start-->
+        <ul uib-pagination total-items="objs.length" ng-model="currentPage" max-size="3" items-per-page="entryLimit" class="pagination" boundary-link-numbers="true" rotate="false" next-text="Próximo" previous-text="Anterior"></ul>
+        <!--Pagination end-->
+    </div>
+</div>

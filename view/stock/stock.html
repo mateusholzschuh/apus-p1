@@ -1,0 +1,43 @@
+<div class="container bg-light">
+    <div class="row mb-2">
+        <!-- Title -->
+        <h1>Estoque</h1>
+    </div>
+    <div class="row">
+        <!-- Controls // Search and Add button -->
+        <div class="d-flex w-100 mb-2 justify-content-between">
+            <input class="form-control col-7" type="search" ng-model="search" placeholder="Procurar por..."/>
+            <a href="#!stock/add" class="form-control col-4 col-md-3 btn btn-primary"><i class="fa fa-plus"></i> <span class="collapse-text">Adicionar novo</span></a>
+        </div>
+        <!-- Table start -->
+        <table class="table table-hover table-striped table-responsive-sm bg-light">
+            <thead>
+                <tr>
+                    <th><a href="" ng-click="delEntries();" ng-class="{dn : !isSomeSelected(entries)}" class="trash-anim fa fa-trash" title="Remover todos selecionados"></a></th>
+                    <th><a href="" ng-click="sort('id')">Id</a></th>
+                    <th><a href="" ng-click="sort('product_id')">Produto</a></th>
+                    <th><a href="" ng-click="sort('quantity')">Quantidade</a></th>
+                    <th><a href="" ng-click="sort('date_time')">Data</a></th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="entry in objs = (entries | orderBy:keysort:reverseSort | filter:search) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                    <td><input type="checkbox" ng-model="entry.selected"></td>
+                    <td>{{entry.id}}</td>
+                    <td>{{entry.product_id}}</td>
+                    <td>{{entry.quantity}}</td>
+                    <td>{{entry.date_time | date:"dd/MM/yyyy HH:mm"}}</td>
+                    <td>
+                        <a href="#!stock/update/{{entry.id}}" class="btn btn-success btn-sm rounded-circle" title="Alterar"><i class="fa fa-edit"></i></a>
+                        <button ng-click="delEntry(entry.id)" class="btn btn-danger btn-sm rounded-circle" title="Remover"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Table end -->
+        <!-- Pagination start -->
+        <ul uib-pagination total-items="objs.length" ng-model="currentPage" max-size="3" items-per-page="entryLimit" class="pagination" boundary-link-numbers="true" rotate="false" next-text="Próximo" previous-text="Anterior"></ul>
+        <!-- Pagination end -->
+    </div>
+</div>
