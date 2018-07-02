@@ -1,0 +1,1 @@
+body{background:#dedede}.container{max-width:960px;margin-top:2rem;padding:3rem}@media (max-width:500px){.collapse-text{display:none}}.trash-anim{cursor:pointer;transition:all .5s ease-in}.dn{display:none}.modal,.modal-open .modal{display:flex!important;align-items:center;justify-content:center}
